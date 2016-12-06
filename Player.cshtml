@@ -1,0 +1,24 @@
+﻿@{
+    Page.Title = "播放视频";
+    Layout = "~/views/shared/_sitelayout.cshtml";
+    var VideoName = "1"+".mp4";
+}
+
+@section scripts{
+    <script src="~/Scripts/mediaelement/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="~/Scripts/mediaelement/mediaelementplayer.css" />
+    @*<link rel="stylesheet" href="~/Scripts/mediaelement/mejs-skins.css" />*@
+    <script>
+        $(document).ready(function ()  {
+                $('video').mediaelementplayer({
+                        alwaysShowControls:  true,
+                        videoVolume:  'horizontal',
+                        features:  ['playpause', 'progress', 'volume', 'fullscreen']
+                });
+        });
+    </script>
+}
+
+<div>
+    <video src="~/UploadedVideos/@VideoName" width="1024" height="576"></video>
+</div>
