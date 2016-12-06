@@ -1,0 +1,35 @@
+﻿@using Microsoft.Web.Helpers;
+@{
+    Page.Title = "Vidio Management";
+    Layout = "~/views/shared/_SiteLayout.cshtml";
+
+
+    var fileName = "";
+    if (IsPost)
+    {
+        var fileSavePath = "";
+        var uploadedFile = Request.Files[0];
+        fileName = Path.GetFileName(uploadedFile.FileName);
+        fileSavePath = Server.MapPath("~/UploadedVideos/" +
+          fileName);
+        uploadedFile.SaveAs(fileSavePath);
+    }
+}
+<h1>上传视频</h1>
+<form action="" enctype="multipart/form-data" method="post">
+    <div class="row">
+        
+        <div class="col-md-1">
+            <div class="input-group">
+                <input type="file" class="filestyle" data-icon="true" data-input="false" data-buttonText="&nbsp;选择文件" id="file-upload-0" name="file-upload-0">
+                @*<input type="file" class="form-control" placeholder="选择文件" id="file-upload-0" name="file-upload-0">*@
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">上传</button>
+                </span>
+            </div><!-- /input-group -->
+        </div>
+    @section scripts{
+        <script src="~/Scripts/bootstrap-filestyle.min.js"></script>       
+        }
+    </div><!-- /.row -->
+</form>
