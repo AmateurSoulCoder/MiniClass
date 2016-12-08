@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/views/Shared/_SiteLayout.cshtml";
+    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    var currentusername = User.Identity.Name.ToString();
+
+    if (Request.HttpMethod == "POST")
+    {
+        string username = Request.Form["username"];
+        string password = Request.Form["password"];
+        string remember = Request.Form["remember"];
+
+        if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+        {
+            AntiForgery.Validate();
+            if (FormsAuthentication.Authenticate(username, password))
+            {
+                FormsAuthentication.RedirectFromLoginPage(username, remember == "on");
+            }
+        }
+
+        else if (!string.IsNullOrEmpty(Request["signout"]))
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect(Request["ReturnUrl"], true);
+        }
+    }
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <form action="@Request.RawUrl" method="post" role="form" class="col-md-5 col-md-offset-3 form-inline" id="login">
+        <fieldset>
+            @if (Request.HttpMethod == "POST")
+            {
+                <p class="alert alert-danger">用户名或密码错误</p>
+            }
+
+            <div class="form-group">
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="用户名" required autofocus />
+            </div>
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="密码" required />
+            </div>
+            @*<div class="checkbox">
+                    <input type="checkbox" id="remember" name="remember" />
+                    <label for="remember">&nbsp;记住密码</label>
+                </div>*@
+            <button type="submit" class="btn btn-primary">登陆</button>
+
+
+        </fieldset>
+        @AntiForgery.GetHtml()
+    </form>
+}
+
+else
+{
+    <div class="row form-group">
+        <div class="col-xs-2">
+            <select id="weikeNianji" name="weikeNianji" class="form-control">
+                <option selected>选择年级</option>
+                <option value="1">初一</option>
+                <option value="2">初二</option>
+                <option value="3">初三</option>
+                <option value="4">中一</option>
+                <option value="4">中二</option>
+                <option value="4">中三</option>
+            </select>
+        </div>
+        <div class="col-xs-2">
+            <select class="form-control" id="xueke" name="xueke">
+                <option selected>选择学科</option>
+                <option value="语文">语文</option>
+                <option value="数学">数学</option>
+                <option value="英语">英语</option>
+                <option value="政治">政治</option>
+                <option value="历史">历史</option>
+                <option value="地理">地理</option>
+                <option value="物理">物理</option>
+                <option value="化学">化学</option>、
+                <option value="生物">生物</option>
+                <option value="音乐">音乐</option>
+                <option value="美术">美术</option>
+                <option value="信息技术">信息技术</option>
+                <option value="体操">体操</option>
+                <option value="排球">排球</option>
+            </select>
+        </div>
+        <div class="col-xs-3">
+            <select class="form-control" id="class" name="class">
+                <option selected>选择视频</option>
+                
+            </select>
+        </div>
+        <div class="col-xs-2">
+            @*<button class="btn btn-primary" type="submit">播放</button>*@
+            <a href="~/Player.cshtml"><button class="btn btn-danger">播放</button></a>
+        </div>
+        @if (currentusername == "jinweilong")
+        {
+
+        <div class="col-xs-2">
+           <a href="~/manage.cshtml"><button class="btn btn-danger">上传</button></a>
+        </div>
+        }
+    </div>
+
+    
+   
+}
