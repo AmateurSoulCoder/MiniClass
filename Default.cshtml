@@ -60,52 +60,37 @@ else
         <div class="col-xs-2">
             <select id="weikeNianji" name="weikeNianji" class="form-control">
                 <option selected>选择年级</option>
-                <option value="1">初一</option>
-                <option value="2">初二</option>
-                <option value="3">初三</option>
-                <option value="4">中一</option>
-                <option value="4">中二</option>
-                <option value="4">中三</option>
+                @for (var i = 0; i < 6; i++)
+                {
+                    <option value="@GlobalVar.pinyinGrade[i]">@GlobalVar.ChineseGrade[i]</option>
+                }
             </select>
         </div>
         <div class="col-xs-2">
             <select class="form-control" id="xueke" name="xueke">
                 <option selected>选择学科</option>
-                <option value="语文">语文</option>
-                <option value="数学">数学</option>
-                <option value="英语">英语</option>
-                <option value="政治">政治</option>
-                <option value="历史">历史</option>
-                <option value="地理">地理</option>
-                <option value="物理">物理</option>
-                <option value="化学">化学</option>、
-                <option value="生物">生物</option>
-                <option value="音乐">音乐</option>
-                <option value="美术">美术</option>
-                <option value="信息技术">信息技术</option>
-                <option value="体操">体操</option>
-                <option value="排球">排球</option>
+                @for (var i = 0; i < 14; i++){
+                    <option value="@GlobalVar.pinyinSubject[i]">@GlobalVar.ChineseSubject[i]</option>
+                }
             </select>
         </div>
         <div class="col-xs-3">
             <select class="form-control" id="class" name="class">
                 <option selected>选择视频</option>
-                
+                <option value="sanxia">三峡</option>
             </select>
         </div>
         <div class="col-xs-2">
             @*<button class="btn btn-primary" type="submit">播放</button>*@
-            <a href="~/Player.cshtml"><button class="btn btn-danger">播放</button></a>
+            <a href="~/Player.cshtml" class="btn btn-success">播放</a>
         </div>
         @if (currentusername == "jinweilong")
         {
 
         <div class="col-xs-2">
-           <a href="~/manage.cshtml"><button class="btn btn-danger">上传</button></a>
+           <a href="~/manage.cshtml" class="btn btn-danger">上传</a>
         </div>
         }
     </div>
-
-    
-   
 }
+
