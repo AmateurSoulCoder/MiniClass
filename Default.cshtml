@@ -60,7 +60,7 @@ else
         <div class="col-xs-2">
             <select id="weikeNianji" name="weikeNianji" class="form-control">
                 <option selected>选择年级</option>
-                @for (var i = 0; i < 6; i++)
+                @for (var i = 0; i < GlobalVar.pinyinGrade.Length; i++)
                 {
                     <option value="@GlobalVar.pinyinGrade[i]">@GlobalVar.ChineseGrade[i]</option>
                 }
@@ -69,7 +69,7 @@ else
         <div class="col-xs-2">
             <select class="form-control" id="xueke" name="xueke">
                 <option selected>选择学科</option>
-                @for (var i = 0; i < 14; i++){
+                @for (var i = 0; i < GlobalVar.pinyinSubject.Length; i++){
                     <option value="@GlobalVar.pinyinSubject[i]">@GlobalVar.ChineseSubject[i]</option>
                 }
             </select>
