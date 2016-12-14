@@ -28,4 +28,7 @@ public class GlobalVar
                                      HttpContext.Current.Server.MapPath("~/UploadedVideos"), "*")
                                      .Select(Path.GetFileNameWithoutExtension)
                                      .ToArray();
+
+    public static string[] videofilename = VideoFileNames.ToList().Select
+                                           (s => s.Split('.')[2]).ToArray();
 }
