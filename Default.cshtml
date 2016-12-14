@@ -79,7 +79,7 @@ else
                 <option selected>选择视频</option>
                 @for(int i = 0; i < GlobalVar.videofilename.Length; i++)
                 {
-                    <option value="@GlobalVar.videofilename[i]">@GlobalVar.videofilename[i]</option>
+                    <option value="@GlobalVar.videofilename[i]">@ShowChinese.ChineseVideoFileName(GlobalVar.videofilename[i]) </option>
                 }
             </select>
         </div>
