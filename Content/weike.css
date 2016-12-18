@@ -1,6 +1,7 @@
 ﻿body {
     background:url(../Content/Images/site_background.jpg) no-repeat fixed center;
     background-size:cover;
+    padding-top:90px;
 }
 
 .zhegai {
@@ -25,14 +26,14 @@
 }
 
 .front {
-    top:80px;
+    
     margin: 0 auto;
     clear: both;
     position: relative;
     /*margin-bottom:90px;*/
+    margin-bottom:20px;
 }
 
 .topspace {
-    margin-top:100px;
-    position:relative;
+    
 }
