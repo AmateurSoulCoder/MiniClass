@@ -1,7 +1,22 @@
 ﻿@{
-    Page.Title = "播放视频";
     Layout = "~/views/shared/_sitelayout.cshtml";
-    var VideoName = "1"+".mp4";
+    Page.Title = "播放视频";
+
+    var nianji = "";
+    var xueke = "";
+    var mingcheng = "";
+    var VideoName = "";
+    if (IsPost)
+    {
+        nianji = Request.Form["weikeNianji"];
+        xueke = Request.Form["weikeXueke"];
+        mingcheng = Request.Form["weikeMingcheng"];
+
+
+        VideoName = nianji + "." + xueke + "." + mingcheng + ".mp4";
+    }
+
+
 }
 
 @section scripts{
@@ -19,6 +34,12 @@
     </script>
 }
 
+<h2>视频信息</h2>
+@*<p> @nianji @xueke @mingcheng</p>*@
+<p>年级： @ShowChinese.ChineseGrade(nianji)</p>
+<p>学科： @ShowChinese.ChineseSubject(xueke) </p>
+<p>名称： @ShowChinese.ChineseVideoFileName(mingcheng)</p>
+<p>主讲： @ShowChinese.ChineseTeacher(mingcheng)</p>
 <div>
     <video src="~/UploadedVideos/@VideoName" width="1024" height="576"></video>
 </div>

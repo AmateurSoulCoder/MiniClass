@@ -1,14 +1,98 @@
 ﻿
 
 @helper ChineseVideoFileName(string videofilename)
+{
+    switch (videofilename)
     {
-        switch (videofilename)
-        {
-             case "sanxia":
+    case "sanxia":
             <text>三峡</text>
-            break;
-        case "youai":
+        break;
+    case "youai":
             <text>有爱</text>
-            break;
+        break;
+    }
 }
+
+
+@*显示中文年级*@
+@helper ChineseGrade(string VideoGrade)
+{
+    switch (VideoGrade)
+    {
+    case "chuyi":
+            <text> @GlobalVar.ChineseGrade[0]</text>
+        break;
+    case "chuer":
+            <text> @GlobalVar.ChineseGrade[1]</text>
+        break;
+    case "chusan":
+            <text> @GlobalVar.ChineseGrade[2]</text>
+        break;
+    case "zhongyi":
+            <text> @GlobalVar.ChineseGrade[3]</text>
+        break;
+    case "zhonger":
+            <text> @GlobalVar.ChineseGrade[4]</text>
+        break;
+    case "zhongsan":
+            <text> @GlobalVar.ChineseGrade[5]</text>
+        break;
+    }
 }
+
+@* 显示中文学科 *@
+@helper ChineseSubject(string VideoSubject) { 
+    switch (VideoSubject)
+    {
+        case "yuwen":
+            <text> @GlobalVar.ChineseSubject[0]</text>
+        break;
+    case "shuxue":
+            <text> @GlobalVar.ChineseSubject[1]</text>
+        break;
+    case "yingyu":
+            <text> @GlobalVar.ChineseSubject[2]</text>
+        break;
+    case "zhengzhi":
+            <text> @GlobalVar.ChineseSubject[3]</text>
+        break;
+    case "lishi":
+            <text> @GlobalVar.ChineseSubject[4]</text>
+        break;
+    case "dili":
+            <text> @GlobalVar.ChineseSubject[5]</text>
+        break;
+    case "wuli":
+            <text> @GlobalVar.ChineseSubject[6]</text>
+        break;
+    case "huaxue":
+            <text> @GlobalVar.ChineseSubject[7]</text>
+        break;
+    case "shengwu":
+            <text> @GlobalVar.ChineseSubject[8]</text>
+        break;
+    case "yinyue":
+            <text> @GlobalVar.ChineseSubject[9]</text>
+        break;
+    case "meishu":
+            <text> @GlobalVar.ChineseSubject[10]</text>
+        break;
+    case "xinxijishu":
+            <text> @GlobalVar.ChineseSubject[11]</text>
+        break;
+    case "paiqiu":
+            <text> @GlobalVar.ChineseSubject[12]</text>
+        break;
+    case "zuqiu":
+            <text> @GlobalVar.ChineseSubject[13]</text>
+        break;
+    }
+}
+
+@helper ChineseTeacher(string videoTeacher) { 
+switch (videoTeacher)
+{
+        case "sanxia":
+            <text>吕虹</text>
+        break;
+}}
