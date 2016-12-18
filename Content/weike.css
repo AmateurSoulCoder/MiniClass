@@ -1,0 +1,38 @@
+﻿body {
+    background:url(../Content/Images/site_background.jpg) no-repeat fixed center;
+    background-size:cover;
+}
+
+.zhegai {
+    opacity: 0.7;
+    filter: alpha(opacity=30);
+    background-color: #2096BA;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.denglu {
+    margin:0 auto;
+    clear:both;
+    
+    /*padding:15px 5px 15px;*/
+    
+    position: absolute;
+    bottom: 200px;
+}
+
+.front {
+    top:80px;
+    margin: 0 auto;
+    clear: both;
+    position: relative;
+    /*margin-bottom:90px;*/
+}
+
+.topspace {
+    margin-top:100px;
+    position:relative;
+}

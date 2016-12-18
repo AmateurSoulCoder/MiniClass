@@ -34,12 +34,23 @@
     </script>
 }
 
-<h2>视频信息</h2>
-@*<p> @nianji @xueke @mingcheng</p>*@
-<p>年级： @ShowChinese.ChineseGrade(nianji)</p>
-<p>学科： @ShowChinese.ChineseSubject(xueke) </p>
-<p>名称： @ShowChinese.ChineseVideoFileName(mingcheng)</p>
-<p>主讲： @ShowChinese.ChineseTeacher(mingcheng)</p>
+<div class="panel panel-primary front">
+    <div class="panel-heading">当前视频信息</div>
+    <div class="panel-body row">
+        <div class="col-xs-3 col-md-3 col-lg-3">
+            年级： @ShowChinese.ChineseGrade(nianji)
+        </div>
+        <div class="col-xs-3 col-md-3 col-lg-3">
+            学科： @ShowChinese.ChineseSubject(xueke)
+        </div>
+        <div class="col-xs-3 col-md-3 col-lg-3">
+            名称： @ShowChinese.ChineseVideoFileName(mingcheng)
+        </div>
+        <div class="col-xs-3 col-md-3 col-lg-3">
+            主讲： @ShowChinese.ChineseTeacher(mingcheng)
+        </div>
+    </div>
+</div>
 <div>
-    <video src="~/UploadedVideos/@VideoName" width="1024" height="576"></video>
+    <video src="~/UploadedVideos/@VideoName" class="topspace" ></video>
 </div>
