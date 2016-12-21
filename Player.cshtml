@@ -33,7 +33,7 @@
         });
     </script>
 }
-@if (User.Identity.IsAuthenticated)
+@if (!User.Identity.IsAuthenticated)
 {
 <div class="panel panel-primary front">
     <div class="panel-heading">当前视频信息</div>
@@ -53,12 +53,12 @@
     </div>
 </div>
 <div>
-    <video src="~/UploadedVideos/@VideoName" class="topspace" width="640" height="480"></video>
+    <video src="~/UploadedVideos/@VideoName" class="topspace" width="100%" height="480"></video>
 </div>
 }
 else
 {
-    <<div class="warninginfo container">
+    <div class="warninginfo container">
         你没有权限查看视频
     </div>
 }
